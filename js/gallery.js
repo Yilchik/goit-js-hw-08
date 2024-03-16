@@ -92,15 +92,17 @@ function imgClick(event) {
     return;
   }
 
-  const currentImg = event.target.closest('.gallery-item');
+  const currentImg = event.target.closest('.gallery-image');
   const imgSource = currentImg.dataset.source;
-  const photo = images.find(i => i.source);
+  const image = images.find(item => item.original === imgSource);
 
   const instance = basicLightbox.create(`
-<div class="modal">
-<img
-  src="${image.original}"
-  alt="${image.description}" /></div>`);
+    <div class="modal">
+     <img
+     src="${image.original}"
+     alt="${image.description}" />
+    </div>
+  `);
 
   instance.show();
 }
