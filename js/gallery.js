@@ -105,4 +105,11 @@ function imgClick(event) {
   `);
 
   instance.show();
+
+  const imgClose = document.querySelector('.modal');
+  imgClose.addEventListener('click', event => {
+    if (event.target.nodeName === 'IMG') {
+      instance.close();
+    }
+  });
 }
